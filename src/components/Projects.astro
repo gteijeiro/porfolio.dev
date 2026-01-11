@@ -2,6 +2,11 @@
 import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
+import Python from "./icons/Python.astro"
+import CLI from "./icons/CLI.astro"
+import Automation from "./icons/Automation.astro"
+import IA from "./icons/IA.astro"
+import Script from "./icons/Script.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -16,18 +21,50 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#306998] text-white",
+    icon: Python,
+  },
+  CLI: {
+    name: "CLI",
+    class: "bg-zinc-900 text-white",
+    icon: CLI,
+  },
+  AUTOMATION: {
+    name: "Automation",
+    class: "bg-emerald-700 text-white",
+    icon: Automation,
+  },
+  IA: {
+    name: "IA",
+    class: "bg-violet-700 text-white",
+    icon: IA,
+  },
+  SCRIPT: {
+    name: "Script",
+    class: "bg-amber-600 text-white",
+    icon: Script,
+  },
 }
 const PROJECTS = [
   {
-    title: "",
+    title: "Files Tools",
     description:
-      "",
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
+      "Colección de utilidades de consola desarrolladas en Python para organizar y sanear colecciones grandes de archivos multimedia (imágenes, videos y otros). El proyecto agrupa herramientas creadas con asistencia de IA que permiten clasificar archivos, limpiar nombres, detectar duplicados y reorganizar colecciones desordenadas de forma automática y eficiente desde la línea de comandos.",
+    link: "", // Proyecto de consola, sin link público
+    github: "https://github.com/gteijeiro/files-tools",
+    image: "/projects/file-tools.png",
+    tags: [
+      TAGS.PYTHON,
+      TAGS.CLI,
+      TAGS.AUTOMATION,
+      TAGS.IA,
+      TAGS.SCRIPT,
+    ],
   }
 ]
+
 ---
 
 <div class="flex flex-col gap-y-16">
@@ -48,12 +85,12 @@ const PROJECTS = [
       <ul class="flex flex-row mb-2 gap-x-2">
           {tags.map((tag) => (
             <li>
-              <!--<span
+              <span
                 class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
               >
                 <tag.icon class="size-4" />
                 {tag.name}
-              </span>-->
+              </span>
             </li>
           ))}
         </ul>
