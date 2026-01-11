@@ -124,41 +124,39 @@ const PROJECTS = [
     </div>
   </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
+  <div class="w-full md:w-1/2 md:max-w-lg min-w-0">
     <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
       {title}
     </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
+    <ul class="flex flex-wrap gap-2 mt-3">
+      {tags.map((tag) => (
+        <li>
+          <span
+            class={`inline-flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+          >
+            <tag.icon class="size-4" />
+            <span class="whitespace-nowrap">{tag.name}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
 
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
+    <div class="mt-4 text-gray-700 dark:text-gray-400 text-pretty">{description}</div>
+
+    <footer class="flex flex-wrap items-center justify-start mt-5 gap-3">
+      {github && (
+        <LinkButton href={github}>
+          <GitHub class="size-6" />
+          Code
+        </LinkButton>
+      )}
+      {link && (
+        <LinkButton href={link}>
+          <Link class="size-4" />
+          Preview
+        </LinkButton>
+      )}
+    </footer>
   </div>
 </article>
     ))
