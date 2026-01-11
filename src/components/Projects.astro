@@ -7,6 +7,11 @@ import CLI from "./icons/CLI.astro"
 import Automation from "./icons/Automation.astro"
 import IA from "./icons/IA.astro"
 import Script from "./icons/Script.astro"
+import CSharp from "./icons/CSharp.astro"
+import DotNet from "./icons/DotNet.astro"
+import Playwright from "./icons/Playwright.astro"
+import AFIP from "./icons/AFIP.astro"
+import Consola from "./icons/Consola.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -46,6 +51,31 @@ const TAGS = {
     class: "bg-amber-600 text-white",
     icon: Script,
   },
+  CSHARP: {
+    name: "C#",
+    class: "bg-[#512BD4] text-white",
+    icon: CSharp,
+  },
+  DOTNET9: {
+    name: ".NET 9",
+    class: "bg-[#512BD4] text-white",
+    icon: DotNet,
+  },
+  PLAYWRIGHT: {
+    name: "Playwright",
+    class: "bg-lime-700 text-white",
+    icon: Playwright,
+  },
+  AFIP: {
+    name: "AFIP",
+    class: "bg-sky-700 text-white",
+    icon: AFIP,
+  },
+  CONSOLA: {
+    name: "Consola",
+    class: "bg-zinc-800 text-white",
+    icon: Consola,
+  },
 }
 const PROJECTS = [
   {
@@ -54,15 +84,32 @@ const PROJECTS = [
       "Colección de utilidades de consola desarrolladas en Python para organizar y sanear colecciones grandes de archivos multimedia (imágenes, videos y otros). El proyecto agrupa herramientas creadas con asistencia de IA que permiten clasificar archivos, limpiar nombres, detectar duplicados y reorganizar colecciones desordenadas de forma automática y eficiente desde la línea de comandos.",
     link: "", // Proyecto de consola, sin link público
     github: "https://github.com/gteijeiro/files-tools",
-    image: "/projects/file-tools.png",
+    image: "/projects/consola.png",
     tags: [
       TAGS.PYTHON,
       TAGS.CLI,
       TAGS.AUTOMATION,
       TAGS.IA,
       TAGS.SCRIPT,
+      TAGS.CONSOLA,
     ],
-  }
+  },
+  {
+  title: "ARCA LPG Scraper",
+  description:
+    "Herramienta de línea de comandos escrita en .NET 9 que automatiza la descarga de comprobantes en PDF desde el servicio de Liquidación Primaria de Granos (LPG) del portal de AFIP. Utiliza Playwright para reproducir de forma programática los pasos manuales de navegación y autenticación, detecta los registros disponibles y obtiene los documentos correspondientes, guardándolos localmente con nombres sanitizados para evitar colisiones.",
+  link: "", // Proyecto de consola, sin deploy o web app
+  github: "https://github.com/gteijeiro/arca-lpgscraper",
+    image: "/projects/consola.png",
+  tags: [
+    TAGS.CSHARP,
+    TAGS.DOTNET9,
+    TAGS.PLAYWRIGHT,
+    TAGS.AFIP,
+    TAGS.CLI,
+    TAGS.CONSOLA,
+  ],
+}
 ]
 
 ---
