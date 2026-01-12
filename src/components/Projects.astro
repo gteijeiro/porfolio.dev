@@ -18,6 +18,8 @@ import Tesseract from "./icons/Tesseract.astro"
 import Telegram from "./icons/Telegram.astro"
 import Azure from "./icons/Azure.astro"
 import OpenAI from "./icons/OpenAI.astro"
+import Streamlit from "./icons/Streamlit.astro"
+import WebApp from "./icons/WebApp.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -112,6 +114,16 @@ const TAGS = {
     class: "bg-neutral-900 text-white",
     icon: OpenAI,
   },
+  STREAMLIT: {
+    name: "Streamlit",
+    class: "bg-rose-600 text-white",
+    icon: Streamlit,
+  },
+  WEB_APP: {
+    name: "Web App",
+    class: "bg-teal-700 text-white",
+    icon: WebApp,
+  },
 }
 const PROJECTS = [
   {
@@ -124,7 +136,6 @@ const PROJECTS = [
     tags: [
       TAGS.PYTHON,
       TAGS.CLI,
-      TAGS.AUTOMATION,
       TAGS.IA,
       TAGS.SCRIPT,
       TAGS.CONSOLA,
@@ -159,7 +170,6 @@ const PROJECTS = [
     TAGS.PYTHON,
     TAGS.CLI,
     TAGS.CONSOLA,
-    TAGS.AUTOMATION,
     TAGS.OCR,
     TAGS.TESSERACT,
     TAGS.OPEN_SOURCE,
@@ -177,8 +187,24 @@ const PROJECTS = [
     TAGS.TELEGRAM,
     TAGS.AZURE,
     TAGS.OPENAI,
-    TAGS.AUTOMATION,
     TAGS.OCR,
+    TAGS.OPEN_SOURCE,
+  ],
+},
+{
+  title: "Generador de Código con IA",
+  description:
+    "Aplicación web desarrollada en Python con Streamlit que funciona como generador de código asistido por IA. Permite conectar con modelos de Azure OpenAI para aplicar ‘prompts’ sobre plantillas personalizadas, sustituir variables en archivos estáticos y descargar el código generado organizado por archivos. Incluye manejo de diferentes modelos de IA y herramientas auxiliares para limpiar y estructurar el texto de entrada.",
+  link: "", // sin deploy público
+  github: "https://github.com/gteijeiro/codegen",
+  image: "/projects/codegenia.png",
+  tags: [
+    TAGS.PYTHON,
+    TAGS.STREAMLIT,
+    TAGS.WEB_APP,
+    TAGS.IA,
+    TAGS.AZURE,
+    TAGS.OPENAI,
     TAGS.OPEN_SOURCE,
   ],
 }
