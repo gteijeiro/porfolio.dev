@@ -12,6 +12,9 @@ import DotNet from "./icons/DotNet.astro"
 import Playwright from "./icons/Playwright.astro"
 import AFIP from "./icons/AFIP.astro"
 import Consola from "./icons/Consola.astro"
+import OpenSource from "./icons/OpenSource.astro"
+import OCR from "./icons/OCR.astro"
+import Tesseract from "./icons/Tesseract.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -76,6 +79,21 @@ const TAGS = {
     class: "bg-zinc-800 text-white",
     icon: Consola,
   },
+  OPEN_SOURCE: {
+    name: "Open Source",
+    class: "bg-indigo-700 text-white",
+    icon: OpenSource,
+  },
+  OCR: {
+    name: "OCR",
+    class: "bg-fuchsia-700 text-white",
+    icon: OCR,
+  },
+  TESSERACT: {
+    name: "Tesseract",
+    class: "bg-slate-700 text-white",
+    icon: Tesseract,
+  },
 }
 const PROJECTS = [
   {
@@ -92,6 +110,7 @@ const PROJECTS = [
       TAGS.IA,
       TAGS.SCRIPT,
       TAGS.CONSOLA,
+      TAGS.OPEN_SOURCE,
     ],
   },
   {
@@ -108,6 +127,24 @@ const PROJECTS = [
     TAGS.AFIP,
     TAGS.CLI,
     TAGS.CONSOLA,
+    TAGS.OPEN_SOURCE,
+  ],
+},
+{
+  title: "ARCA LPG OCR",
+  description:
+    "Herramienta de línea de comandos en Python diseñada para procesar y extraer información estructurada de los PDFs obtenidos de Liquidaciones Primarias de Granos (LPG). El proyecto combina OCR con detección de bloques de texto y tablas para generar resultados en formatos como CSV o JSON, normalizando campos clave como comprador, vendedor, totales y detalles agrícolas de cada liquidación descargada automáticamente.",
+  link: "", // Proyecto CLI sin deploy web
+  github: "https://github.com/gteijeiro/arca-lpg-ocr",
+    image: "/projects/consola.png",
+  tags: [
+    TAGS.PYTHON,
+    TAGS.CLI,
+    TAGS.CONSOLA,
+    TAGS.AUTOMATION,
+    TAGS.OCR,
+    TAGS.TESSERACT,
+    TAGS.OPEN_SOURCE,
   ],
 }
 ]
