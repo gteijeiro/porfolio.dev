@@ -15,6 +15,9 @@ import Consola from "./icons/Consola.astro"
 import OpenSource from "./icons/OpenSource.astro"
 import OCR from "./icons/OCR.astro"
 import Tesseract from "./icons/Tesseract.astro"
+import Telegram from "./icons/Telegram.astro"
+import Azure from "./icons/Azure.astro"
+import OpenAI from "./icons/OpenAI.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -94,6 +97,21 @@ const TAGS = {
     class: "bg-slate-700 text-white",
     icon: Tesseract,
   },
+  TELEGRAM: {
+    name: "Telegram",
+    class: "bg-sky-600 text-white",
+    icon: Telegram,
+  },
+  AZURE: {
+    name: "Azure",
+    class: "bg-blue-700 text-white",
+    icon: Azure,
+  },
+  OPENAI: {
+    name: "OpenAI",
+    class: "bg-neutral-900 text-white",
+    icon: OpenAI,
+  },
 }
 const PROJECTS = [
   {
@@ -146,6 +164,23 @@ const PROJECTS = [
     TAGS.TESSERACT,
     TAGS.OPEN_SOURCE,
   ],
+},
+{
+  title: "Telegram Bot",
+  description:
+    "Bot de Telegram desarrollado en Python que recibe imágenes o archivos PDF de facturas, convierte los PDFs a imágenes y extrae los datos principales usando Azure OpenAI (visión + Structured Outputs). El bot responde con un JSON estructurado con campos clave como número de factura, montos, fecha y datos de vendedor/comprador directamente en el chat de Telegram.",  
+  link: "", // proyecto de consola / bot sin deploy web
+  github: "https://github.com/gteijeiro/telegramBot",
+  image: "/projects/bottelegram.png",
+  tags: [
+    TAGS.PYTHON,
+    TAGS.TELEGRAM,
+    TAGS.AZURE,
+    TAGS.OPENAI,
+    TAGS.AUTOMATION,
+    TAGS.OCR,
+    TAGS.OPEN_SOURCE,
+  ],
 }
 ]
 
@@ -154,10 +189,18 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:items-center md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    <div class="relative shadow-xl overflow-hidden rounded-xl transition duration-500 ease-in-out transform md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700">
+      <div class="aspect-video w-full bg-white/40 dark:bg-gray-900/40">
+        <img
+          alt={title}
+          class="w-full h-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
+          src={image}
+        />
+      </div>
     </div>
   </div>
 
