@@ -39,6 +39,32 @@ const lang = propLang ?? getLangFromPath(Astro.url)
     <Header lang={lang} />
     <slot />
     <Footer lang={lang} />
+    <script>
+      const setupReveal = () => {
+        const elements = document.querySelectorAll(".reveal")
+        if (!elements.length) return
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-visible")
+                obs.unobserve(entry.target)
+              }
+            })
+          },
+          {
+            threshold: 0.2,
+            rootMargin: "0px 0px -10% 0px",
+          }
+        )
+
+        elements.forEach((element) => observer.observe(element))
+      }
+
+      document.addEventListener("astro:page-load", setupReveal)
+      setupReveal()
+    </script>
     <style is:global>
       :root {
         color-scheme: light dark;
@@ -55,6 +81,33 @@ const lang = propLang ?? getLangFromPath(Astro.url)
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px) scale(0.98);
+        transition:
+          opacity 650ms ease,
+          transform 650ms ease;
+      }
+
+      .reveal.reveal-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .reveal-children .reveal-child {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 650ms ease,
+          transform 650ms ease;
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+
+      .reveal-visible .reveal-child {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       @media (prefers-reduced-motion: reduce) {
