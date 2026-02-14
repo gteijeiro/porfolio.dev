@@ -22,252 +22,320 @@ import Streamlit from "./icons/Streamlit.astro"
 import WebApp from "./icons/WebApp.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import { getI18n } from "@/i18n"
+import type { Lang, ProjectId, TagKey } from "@/i18n"
+
+interface Props {
+  lang?: Lang
+}
+
+const { lang = "es" } = Astro.props
+const text = getI18n(lang)
+const projectItems = text.projects.items as Record<
+  ProjectId,
+  { title: string; description: string }
+>
+const projectTags = text.projects.tags as Record<TagKey, string>
+
+type ProjectMeta = {
+  id: ProjectId
+  link: string
+  github: string
+  image: string
+  tags: TagKey[]
+  imageClass?: string
+}
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-  PYTHON: {
-    name: "Python",
-    class: "bg-[#306998] text-white",
-    icon: Python,
-  },
-  CLI: {
-    name: "CLI",
-    class: "bg-zinc-900 text-white",
-    icon: CLI,
-  },
-  AUTOMATION: {
-    name: "Automation",
-    class: "bg-emerald-700 text-white",
-    icon: Automation,
-  },
-  IA: {
-    name: "IA",
-    class: "bg-violet-700 text-white",
-    icon: IA,
-  },
-  SCRIPT: {
-    name: "Script",
-    class: "bg-amber-600 text-white",
-    icon: Script,
-  },
-  CSHARP: {
-    name: "C#",
-    class: "bg-[#512BD4] text-white",
-    icon: CSharp,
-  },
-  DOTNET9: {
-    name: ".NET 9",
-    class: "bg-[#512BD4] text-white",
-    icon: DotNet,
-  },
-  PLAYWRIGHT: {
-    name: "Playwright",
-    class: "bg-lime-700 text-white",
-    icon: Playwright,
-  },
-  AFIP: {
-    name: "AFIP",
-    class: "bg-sky-700 text-white",
-    icon: AFIP,
-  },
-  CONSOLA: {
-    name: "Consola",
-    class: "bg-zinc-800 text-white",
-    icon: Consola,
-  },
-  OPEN_SOURCE: {
-    name: "Open Source",
-    class: "bg-indigo-700 text-white",
-    icon: OpenSource,
-  },
-  OCR: {
-    name: "OCR",
-    class: "bg-fuchsia-700 text-white",
-    icon: OCR,
-  },
-  TESSERACT: {
-    name: "Tesseract",
-    class: "bg-slate-700 text-white",
-    icon: Tesseract,
-  },
-  TELEGRAM: {
-    name: "Telegram",
-    class: "bg-sky-600 text-white",
-    icon: Telegram,
-  },
-  AZURE: {
-    name: "Azure",
-    class: "bg-blue-700 text-white",
-    icon: Azure,
-  },
-  OPENAI: {
-    name: "OpenAI",
-    class: "bg-neutral-900 text-white",
-    icon: OpenAI,
-  },
-  STREAMLIT: {
-    name: "Streamlit",
-    class: "bg-rose-600 text-white",
-    icon: Streamlit,
-  },
-  WEB_APP: {
-    name: "Web App",
-    class: "bg-teal-700 text-white",
-    icon: WebApp,
-  },
+  NEXT: { class: "bg-black text-white", icon: NextJS },
+  TAILWIND: { class: "bg-[#003159] text-white", icon: Tailwind },
+  PYTHON: { class: "bg-[#306998] text-white", icon: Python },
+  CLI: { class: "bg-zinc-900 text-white", icon: CLI },
+  AUTOMATION: { class: "bg-emerald-700 text-white", icon: Automation },
+  IA: { class: "bg-violet-700 text-white", icon: IA },
+  SCRIPT: { class: "bg-amber-600 text-white", icon: Script },
+  CSHARP: { class: "bg-[#512BD4] text-white", icon: CSharp },
+  DOTNET9: { class: "bg-[#512BD4] text-white", icon: DotNet },
+  PLAYWRIGHT: { class: "bg-lime-700 text-white", icon: Playwright },
+  AFIP: { class: "bg-sky-700 text-white", icon: AFIP },
+  CONSOLA: { class: "bg-zinc-800 text-white", icon: Consola },
+  OPEN_SOURCE: { class: "bg-indigo-700 text-white", icon: OpenSource },
+  OCR: { class: "bg-fuchsia-700 text-white", icon: OCR },
+  TESSERACT: { class: "bg-slate-700 text-white", icon: Tesseract },
+  TELEGRAM: { class: "bg-sky-600 text-white", icon: Telegram },
+  AZURE: { class: "bg-blue-700 text-white", icon: Azure },
+  OPENAI: { class: "bg-neutral-900 text-white", icon: OpenAI },
+  STREAMLIT: { class: "bg-rose-600 text-white", icon: Streamlit },
+  WEB_APP: { class: "bg-teal-700 text-white", icon: WebApp },
 }
-const PROJECTS = [
+
+const PROJECTS_OWN: ProjectMeta[] = [
   {
-    title: "Files Tools",
-    description:
-      "Colección de utilidades de consola desarrolladas en Python para organizar y sanear colecciones grandes de archivos multimedia (imágenes, videos y otros). El proyecto agrupa herramientas creadas con asistencia de IA que permiten clasificar archivos, limpiar nombres, detectar duplicados y reorganizar colecciones desordenadas de forma automática y eficiente desde la línea de comandos.",
-    link: "", // Proyecto de consola, sin link público
+    id: "filesTools",
+    link: "",
     github: "https://github.com/gteijeiro/files-tools",
     image: "/projects/consola.png",
-    tags: [
-      TAGS.PYTHON,
-      TAGS.CLI,
-      TAGS.IA,
-      TAGS.SCRIPT,
-      TAGS.CONSOLA,
-      TAGS.OPEN_SOURCE,
-    ],
+    tags: ["PYTHON", "CLI", "IA", "SCRIPT", "CONSOLA", "OPEN_SOURCE"] as TagKey[],
   },
   {
-  title: "ARCA LPG Scraper",
-  description:
-    "Herramienta de línea de comandos escrita en .NET 9 que automatiza la descarga de comprobantes en PDF desde el servicio de Liquidación Primaria de Granos (LPG) del portal de AFIP. Utiliza Playwright para reproducir de forma programática los pasos manuales de navegación y autenticación, detecta los registros disponibles y obtiene los documentos correspondientes, guardándolos localmente con nombres sanitizados para evitar colisiones.",
-  link: "", // Proyecto de consola, sin deploy o web app
-  github: "https://github.com/gteijeiro/arca-lpgscraper",
+    id: "arcaLpgScraper",
+    link: "",
+    github: "https://github.com/gteijeiro/arca-lpgscraper",
     image: "/projects/consola.png",
-  tags: [
-    TAGS.CSHARP,
-    TAGS.DOTNET9,
-    TAGS.PLAYWRIGHT,
-    TAGS.AFIP,
-    TAGS.CLI,
-    TAGS.CONSOLA,
-    TAGS.OPEN_SOURCE,
-  ],
-},
-{
-  title: "ARCA LPG OCR",
-  description:
-    "Herramienta de línea de comandos en Python diseñada para procesar y extraer información estructurada de los PDFs obtenidos de Liquidaciones Primarias de Granos (LPG). El proyecto combina OCR con detección de bloques de texto y tablas para generar resultados en formatos como CSV o JSON, normalizando campos clave como comprador, vendedor, totales y detalles agrícolas de cada liquidación descargada automáticamente.",
-  link: "", // Proyecto CLI sin deploy web
-  github: "https://github.com/gteijeiro/arca-lpg-ocr",
+    tags: [
+      "CSHARP",
+      "DOTNET9",
+      "PLAYWRIGHT",
+      "AFIP",
+      "CLI",
+      "CONSOLA",
+      "OPEN_SOURCE",
+    ] as TagKey[],
+  },
+  {
+    id: "arcaLpgOcr",
+    link: "",
+    github: "https://github.com/gteijeiro/arca-lpg-ocr",
     image: "/projects/consola.png",
-  tags: [
-    TAGS.PYTHON,
-    TAGS.CLI,
-    TAGS.CONSOLA,
-    TAGS.OCR,
-    TAGS.TESSERACT,
-    TAGS.OPEN_SOURCE,
-  ],
-},
-{
-  title: "Telegram Bot",
-  description:
-    "Bot de Telegram desarrollado en Python que recibe imágenes o archivos PDF de facturas, convierte los PDFs a imágenes y extrae los datos principales usando Azure OpenAI (visión + Structured Outputs). El bot responde con un JSON estructurado con campos clave como número de factura, montos, fecha y datos de vendedor/comprador directamente en el chat de Telegram.",  
-  link: "", // proyecto de consola / bot sin deploy web
-  github: "https://github.com/gteijeiro/telegramBot",
-  image: "/projects/bottelegram.png",
-  tags: [
-    TAGS.PYTHON,
-    TAGS.TELEGRAM,
-    TAGS.AZURE,
-    TAGS.OPENAI,
-    TAGS.OCR,
-    TAGS.OPEN_SOURCE,
-  ],
-},
-{
-  title: "Generador de Código con IA",
-  description:
-    "Aplicación web desarrollada en Python con Streamlit que funciona como generador de código asistido por IA. Permite conectar con modelos de Azure OpenAI para aplicar ‘prompts’ sobre plantillas personalizadas, sustituir variables en archivos estáticos y descargar el código generado organizado por archivos. Incluye manejo de diferentes modelos de IA y herramientas auxiliares para limpiar y estructurar el texto de entrada.",
-  link: "", // sin deploy público
-  github: "https://github.com/gteijeiro/codegen",
-  image: "/projects/codegenia.png",
-  tags: [
-    TAGS.PYTHON,
-    TAGS.STREAMLIT,
-    TAGS.WEB_APP,
-    TAGS.IA,
-    TAGS.AZURE,
-    TAGS.OPENAI,
-    TAGS.OPEN_SOURCE,
-  ],
-}
+    tags: ["PYTHON", "CLI", "CONSOLA", "OCR", "TESSERACT", "OPEN_SOURCE"] as TagKey[],
+  },
+  {
+    id: "telegramBot",
+    link: "",
+    github: "https://github.com/gteijeiro/telegramBot",
+    image: "/projects/bottelegram.png",
+    imageClass: "object-top",
+    tags: ["PYTHON", "TELEGRAM", "AZURE", "OPENAI", "OCR", "OPEN_SOURCE"] as TagKey[],
+  },
+  {
+    id: "aiCodegen",
+    link: "",
+    github: "https://github.com/gteijeiro/codegen",
+    image: "/projects/codegenia.png",
+    tags: ["PYTHON", "STREAMLIT", "WEB_APP", "IA", "AZURE", "OPENAI", "OPEN_SOURCE"] as TagKey[],
+  },
 ]
 
+const PROJECTS_WORK: ProjectMeta[] = [
+  {
+    id: "workDummy",
+    link: "",
+    github: "",
+    image: "/projects/consola.png",
+    tags: ["AZURE", "WEB_APP"] as TagKey[],
+  },
+]
+
+const createId = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+
+const getExcerpt = (text: string, limit = 180) => {
+  if (text.length <= limit) return text
+  return `${text.slice(0, limit).trimEnd()}...`
+}
+
+const groups = [
+  {
+    title: text.projects.groups.own.title,
+    description: text.projects.groups.own.description,
+    items: PROJECTS_OWN,
+  },
+  {
+    title: text.projects.groups.work.title,
+    description: text.projects.groups.work.description,
+    items: PROJECTS_WORK,
+  },
+]
 ---
 
 <div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:items-center md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative shadow-xl overflow-hidden rounded-xl transition duration-500 ease-in-out transform md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700">
-      <div class="aspect-video w-full bg-white/40 dark:bg-gray-900/40">
-        <img
-          alt={title}
-          class="w-full h-full object-cover object-center"
-          loading="lazy"
-          decoding="async"
-          src={image}
-        />
-      </div>
-    </div>
-  </div>
+  {groups.map((group) => (
+    <section class="flex flex-col gap-y-6">
+      <header class="space-y-2">
+        <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100">
+          {group.title}
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400">{group.description}</p>
+      </header>
 
-  <div class="w-full md:w-1/2 md:max-w-lg min-w-0">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <ul class="flex flex-wrap gap-2 mt-3">
-      {tags.map((tag) => (
-        <li>
-          <span
-            class={`inline-flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-          >
-            <tag.icon class="size-4" />
-            <span class="whitespace-nowrap">{tag.name}</span>
-          </span>
-        </li>
-      ))}
-    </ul>
+      {group.items.length === 0 ? (
+        <div class="rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 p-8 text-gray-600 dark:text-gray-400">
+          {text.projects.empty}
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+          {group.items.map((item: ProjectMeta) => {
+            const { id, image, tags, link, github, imageClass } = item
+            const projectId = createId(id)
+            const projectTitle = projectItems[id].title
+            const projectDescription = projectItems[id].description
+            const imageStyle = imageClass ?? "object-center"
 
-    <div class="mt-4 text-gray-700 dark:text-gray-400 text-pretty">{description}</div>
+            return (
+              <article class="group h-full">
+                <button
+                  type="button"
+                  data-modal-target={`project-${projectId}`}
+                  class="h-full w-full text-left rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/50 backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div class="overflow-hidden rounded-t-2xl">
+                    <div class="aspect-video w-full bg-white/40 dark:bg-gray-900/40">
+                      <img
+                        alt={projectTitle}
+                        class={`w-full h-full object-cover ${imageStyle}`}
+                        loading="lazy"
+                        decoding="async"
+                        src={image}
+                      />
+                    </div>
+                  </div>
+                  <div class="p-4 flex flex-col gap-3">
+                    <div>
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        {projectTitle}
+                      </h4>
+                      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        {getExcerpt(projectDescription)}
+                      </p>
+                    </div>
+                    <ul class="flex flex-wrap gap-2">
+                      {tags.map((tagKey: TagKey) => {
+                        const tag = TAGS[tagKey]
+                        const TagIcon = tag.icon
 
-    <footer class="flex flex-wrap items-center justify-start mt-5 gap-3">
-      {github && (
-        <LinkButton href={github}>
-          <GitHub class="size-6" />
-          Code
-        </LinkButton>
+                        return (
+                        <li>
+                          <span
+                            class={`inline-flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                          >
+                            <TagIcon class="size-4" />
+                              <span class="whitespace-nowrap">{projectTags[tagKey]}</span>
+                          </span>
+                        </li>
+                        )
+                      })}
+                    </ul>
+                    <span class="text-xs font-medium text-gray-700 dark:text-gray-300">
+                      {text.projects.details}
+                    </span>
+                  </div>
+                </button>
+
+                <dialog
+                  id={`project-${projectId}`}
+                  class="rounded-2xl w-full max-w-2xl bg-white text-gray-900 shadow-2xl backdrop:bg-black/50 dark:bg-gray-950 dark:text-gray-100"
+                >
+                  <div class="p-6 sm:p-8 space-y-5">
+                    <div class="flex flex-col gap-4">
+                      <div class="overflow-hidden rounded-xl">
+                        <div class="aspect-video w-full bg-white/40 dark:bg-gray-900/40">
+                          <img
+                            alt={projectTitle}
+                            class={`w-full h-full object-cover ${imageStyle}`}
+                            loading="lazy"
+                            decoding="async"
+                            src={image}
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="text-2xl font-semibold">{projectTitle}</h4>
+                        <p class="mt-3 text-gray-700 dark:text-gray-300">{projectDescription}</p>
+                      </div>
+                    </div>
+
+                    <ul class="flex flex-wrap gap-2">
+                      {tags.map((tagKey: TagKey) => {
+                        const tag = TAGS[tagKey]
+                        const TagIcon = tag.icon
+
+                        return (
+                        <li>
+                          <span
+                            class={`inline-flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                          >
+                            <TagIcon class="size-4" />
+                              <span class="whitespace-nowrap">{projectTags[tagKey]}</span>
+                          </span>
+                        </li>
+                        )
+                      })}
+                    </ul>
+
+                    <footer class="flex flex-wrap items-center justify-between gap-3">
+                      <div class="flex flex-wrap items-center gap-3">
+                        {github && (
+                          <LinkButton href={github}>
+                            <GitHub class="size-6" />
+                            Code
+                          </LinkButton>
+                        )}
+                        {link && (
+                          <LinkButton href={link}>
+                            <Link class="size-4" />
+                            Preview
+                          </LinkButton>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        data-modal-close
+                        class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                      >
+                        {text.projects.close}
+                      </button>
+                    </footer>
+                  </div>
+                </dialog>
+              </article>
+            )
+          })}
+        </div>
       )}
-      {link && (
-        <LinkButton href={link}>
-          <Link class="size-4" />
-          Preview
-        </LinkButton>
-      )}
-    </footer>
-  </div>
-</article>
-    ))
-  }
+    </section>
+  ))}
 </div>
 
+<script>
+  const attachProjectModals = () => {
+    const openButtons = document.querySelectorAll("[data-modal-target]")
+    const closeButtons = document.querySelectorAll("[data-modal-close]")
 
+    openButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-modal-target")
+        const dialog = targetId ? document.getElementById(targetId) : null
 
+        if (dialog instanceof HTMLDialogElement) {
+          dialog.showModal()
+        }
+      })
+    })
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const target = event.currentTarget
+        const dialog =
+          target instanceof HTMLElement ? target.closest("dialog") : null
+
+        if (dialog instanceof HTMLDialogElement) {
+          dialog.close()
+        }
+      })
+    })
+
+    document.querySelectorAll("dialog").forEach((dialog) => {
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+          dialog.close()
+        }
+      })
+    })
+  }
+
+  document.addEventListener("astro:page-load", attachProjectModals)
+  attachProjectModals()
+</script>

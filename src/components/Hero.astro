@@ -1,9 +1,17 @@
 ---
-const personalImageAlt = "Guillermo Teijeiro"
+import { getI18n } from "@/i18n"
+import type { Lang } from "@/i18n"
 import Badge from "@/components/Badge.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
 import MailIcon from "@/components/icons/Mail.astro"
 import SocialPill from "@/components/SocialPill.astro"
+interface Props {
+  lang?: Lang
+}
+
+const personalImageAlt = "Guillermo Teijeiro"
+const { lang = "es" } = Astro.props
+const text = getI18n(lang).hero
 ---
 
 <div class="max-w-xl">
@@ -19,7 +27,7 @@ import SocialPill from "@/components/SocialPill.astro"
       rel="noopener"
       class="flex items-center min-w-0 max-w-full transition md:justify-center md:hover:scale-105"
     >
-      <Badge>Disponible para oportunidades remotas</Badge>
+      <Badge>{text.badge}</Badge>
     </a>
   </div>
   <h1
@@ -30,14 +38,14 @@ import SocialPill from "@/components/SocialPill.astro"
   <p
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
   >
-    +15 años de experiencia. <strong
-      >Desarrollador de Software</strong
-    > de Córdoba, Argentina. 
+    {text.intro}
+    <strong>{text.role}</strong>
+    {text.location}
   </p>
   <nav class="flex flex-wrap gap-4 mt-8">
     <SocialPill href="mailto:gteijeiro29@gmail.com">
       <MailIcon class="size-4" />
-      Contáctame
+      {text.contact}
     </SocialPill>
     <SocialPill href="https://linkedin.com/in/guillermo-teijeiro-7781a232">
       <LinkedInIcon class="size-4" />

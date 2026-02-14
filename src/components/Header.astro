@@ -1,24 +1,37 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro"
+import { getI18n } from "@/i18n"
+import type { Lang } from "@/i18n"
+
+interface Props {
+  lang?: Lang
+}
+
+const { lang = "es" } = Astro.props
+const text = getI18n(lang)
+const basePath = lang === "en" ? "/en" : ""
+const withLang = (url: string) =>
+  url.startsWith("/#") ? `${basePath}${url}` : url
+const isEn = lang === "en"
 
 const navItems = [
   {
-    title: "Experiencia",
+    title: text.nav.experience,
     label: "experiencia",
     url: "/#experiencia",
   },
   {
-    title: "Proyectos",
+    title: text.nav.projects,
     label: "proyectos",
     url: "/#proyectos",
   },
   {
-    title: "Sobre mí",
+    title: text.nav.about,
     label: "sobre-mi",
     url: "/#sobre-mi",
   },
   {
-    title: "Contacto",
+    title: text.nav.contact,
     label: "contacto",
     url: "mailto:gteijeiro29@gmail.com",
   },
@@ -31,17 +44,39 @@ const navItems = [
   <nav
     class="flex items-center gap-1 px-2 sm:px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-start sm:justify-center overflow-x-auto whitespace-nowrap max-w-[calc(100vw-1rem)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
   >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 whitespace-nowrap"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
+    {navItems.map((link) => (
+      <a
+        class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 whitespace-nowrap"
+        aria-label={link.label}
+        href={withLang(link.url)}
+      >
+        {link.title}
+      </a>
+    ))}
+    <div class="flex items-center gap-1 px-1">
+      <a
+        href="/"
+        class={`px-2 py-1 text-xs font-semibold rounded-full transition ${
+          !isEn
+            ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+            : "text-gray-600 dark:text-gray-300"
+        }`}
+        aria-label={text.nav.ariaEs}
+      >
+        ES
+      </a>
+      <a
+        href="/en"
+        class={`px-2 py-1 text-xs font-semibold rounded-full transition ${
+          isEn
+            ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+            : "text-gray-600 dark:text-gray-300"
+        }`}
+        aria-label={text.nav.ariaEn}
+      >
+        EN
+      </a>
+    </div>
     <ThemeToggle />
   </nav>
 </header>

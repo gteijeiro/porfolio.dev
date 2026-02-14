@@ -1,63 +1,22 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-const EXPERIENCE = [
-  {
-    date: "Febrero 2024 - Actualidad",
-    title: "Desarrollador Sr",
-    company: "SHIFTA",
-    description:
-      "Desempeño como Desarrollador Senior en proyectos de gran envergadura. Desarrollo de soluciones estratégicas internas para el ecosistema de YPF e integración en células ágiles multidisciplinarias para Galicia Seguros, impulsando la evolución tecnológica y la modernización de sus plataformas digitales.",
-  },
-  {
-    date: "Junio 2018 - Febrero 2024",
-    title: "Desarrollador de .NET",
-    company: "Bitsion",
-    description:
-      "Liderazgo técnico en proyectos de alto impacto: desarrollo de un ecommerce para Neverland (carga y venta de saldo) y una aplicación integral de tracking logístico. Implementación de arquitecturas complejas utilizando .NET, SQL, MongoDB, RabbitMQ, Neo4j y Angular. Además, participación en la planificación y desarrollo de una Billetera Virtual de marca blanca.",
-  },
-  {
-    date: "Octubre 2017 - Junio 2018",
-    title: "Analista Desarrollador .NET",
-    company: "DICSYS",
-    description:
-      "Servicio de soporte y mantenimiento de aplicaciones críticas para clientes estratégicos como QPlus, garantizando la continuidad operativa y la resolución eficiente de incidencias.",
-  },
-  {
-    date: "Marzo 2017 - Septiembre 2017",
-    title: "Desarrollador .NET",
-    company: "Globadlity",
-    description:
-      "Mantenimiento y modernización de ecosistemas de aplicaciones web utilizando AngularJS, enfocándose en la actualización tecnológica y la estabilidad del código.",
-  },
-  {
-    date: "Abril 2014 - Septiembre 2016",
-    title: "Analista Desarrollador .NET",
-    company: "Sofrecom Argentina SA",
-    description:
-      "Implementación de nuevas funcionalidades críticas para la aplicación masiva 'Mi Cuenta' de Personal y desarrollo integral de la plataforma 'Club Personal Empresa', aplicando en todos los desarrollos un enfoque centrado en la experiencia de usuario (UX). Gestión del mantenimiento correctivo y optimización del rendimiento.",
-  },
-  {
-    date: "Febrero 2013 - Agosto 2013",
-    title: "Desarrollador",
-    company: "GEMINUS IT",
-    description:
-      "Desarrollo integral del proyecto de Ventanilla Única para la Municipalidad de Córdoba. Creación de una aplicación bursátil para cotizaciones en tiempo real utilizando SignalR y KnockoutJS, siendo pioneros en el uso de frameworks para Single Page Applications (SPA).",
-  },
-  {
-    date: "Abril 2011 - Enero 2013",
-    title: "Desarrollador",
-    company: "Grupo Prominente",
-    description:
-      "Participación en el ciclo completo de desarrollo de software. Ejecución de procesos de QA y Testing para asegurar la calidad del entregable, junto con tareas de mantenimiento y refactorización de código.",
-  },
-]
+import { getI18n } from "@/i18n"
+import type { Lang } from "@/i18n"
+
+interface Props {
+  lang?: Lang
+}
+
+const { lang = "es" } = Astro.props
+const text = getI18n(lang).experience
+const items = text.items
 ---
 
 <ol class="relative mt-16">
   {
-    EXPERIENCE.map((experience) => (
+    items.map((experience) => (
       <li class="">
-        <ExperienceItem {...experience} />
+        <ExperienceItem {...experience} learnMoreLabel={text.learnMore} />
       </li>
     ))
   }

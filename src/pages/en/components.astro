@@ -5,23 +5,22 @@ import SocialPill from "@/components/SocialPill.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
 
 import Layout from "@/layouts/Layout.astro"
-import { getI18n, getLangFromPath } from "@/i18n"
-import type { Lang } from "@/i18n"
+import { getI18n } from "@/i18n"
 
-const lang: Lang = getLangFromPath(Astro.url)
-const text = getI18n(lang).components
+const lang = "en"
+const copy = getI18n(lang).components
 ---
 
 <Layout title="" description="" lang={lang}>
   <SectionContainer class="py-44 pb-32 flex flex-col gap-y-10">
     <article class="mb-10">
-      <h1 class="mb-4 text-xl font-semibold">{text.badgeTitle}</h1>
+      <h1 class="mb-4 text-xl font-semibold">{copy.badgeTitle}</h1>
 
-      <Badge>{text.badgeText}</Badge>
+      <Badge>{copy.badgeText}</Badge>
     </article>
 
     <article class="mb-10">
-      <h1 class="mb-4 text-xl font-semibold">{text.pillTitle}</h1>
+      <h1 class="mb-4 text-xl font-semibold">{copy.pillTitle}</h1>
 
       <div class="flex">
         <SocialPill href="https://linkedin.com/in/guillermo-teijeiro-7781a232">

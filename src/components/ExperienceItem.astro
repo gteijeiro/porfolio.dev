@@ -7,9 +7,11 @@ interface Props {
   description: string
   link?: string
   date: string
+  learnMoreLabel?: string
 }
 
-const { title, company, description, link, date } = Astro.props
+const { title, company, description, link, date, learnMoreLabel } = Astro.props
+const learnMore = learnMoreLabel ?? "Saber mas"
 ---
 
 <div
@@ -31,7 +33,7 @@ const { title, company, description, link, date } = Astro.props
     {
       link && (
         <LinkInline href={link}>
-          Saber más{" "}
+          {learnMore}{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-5 icon icon-tabler icon-tabler-chevron-right"

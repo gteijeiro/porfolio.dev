@@ -1,5 +1,17 @@
 ---
+import { getI18n } from "@/i18n"
+import type { Lang } from "@/i18n"
+
+interface Props {
+  lang?: Lang
+}
+
 const currentYear = new Date().getFullYear()
+const { lang = "es" } = Astro.props
+const basePath = lang === "en" ? "/en" : ""
+const withLang = (url: string) =>
+  url.startsWith("/#") ? `${basePath}${url}` : url
+const text = getI18n(lang).footer
 ---
 
 <footer
@@ -10,18 +22,17 @@ const currentYear = new Date().getFullYear()
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
       >&copy; {currentYear}
-      <a href="https://guillermoteijeiro.dev/" class="hover:underline">guillermoteijeiro</a>. Casi
-      todos los derechos reservados
+      <a href="https://guillermoteijeiro.dev/" class="hover:underline">guillermoteijeiro</a>. {text.rights}
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href={withLang("/#sobre-mi")} class="hover:underline me-4 md:me-6">{text.about}</a>
       </li>
       <li>
         <a id="contacto" href="mailto:gteijeiro29@gmail.com" class="hover:underline"
-          >Contacto</a
+          >{text.contact}</a
         >
       </li>
     </ul>

@@ -1,6 +1,5 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import { getI18n, getLangFromPath } from "@/i18n"
 
 import AboutMe from "@/components/AboutMe.astro"
 import Briefcase from "@/components/icons/Briefcase.astro"
@@ -11,8 +10,9 @@ import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
 import TitleSection from "@/components/TitleSection.astro"
+import { getI18n } from "@/i18n"
 
-const lang = getLangFromPath(Astro.url)
+const lang = "en"
 const text = getI18n(lang)
 ---
 
@@ -22,29 +22,29 @@ const text = getI18n(lang)
       <Hero lang={lang} />
     </SectionContainer>
     <div class="space-y-24">
-    <SectionContainer id="experiencia">
-      <TitleSection>
-        <Briefcase class="size-8" />
-        {text.layout.sections.experience}
-      </TitleSection>
-      <Experience lang={lang} />
-    </SectionContainer>
+      <SectionContainer id="experiencia">
+        <TitleSection>
+          <Briefcase class="size-8" />
+          {text.layout.sections.experience}
+        </TitleSection>
+        <Experience lang={lang} />
+      </SectionContainer>
 
-    <SectionContainer id="proyectos" class="max-w-none">
-      <TitleSection>
-        <CodeIcon class="size-7" />
-        {text.layout.sections.projects}
-      </TitleSection>
-      <Projects lang={lang} />
-    </SectionContainer>
+      <SectionContainer id="proyectos" class="max-w-none">
+        <TitleSection>
+          <CodeIcon class="size-7" />
+          {text.layout.sections.projects}
+        </TitleSection>
+        <Projects lang={lang} />
+      </SectionContainer>
 
-    <SectionContainer id="sobre-mi">
-      <TitleSection>
-        <ProfileCheck class="size-8" />
-        {text.layout.sections.about}
-      </TitleSection>
-      <AboutMe lang={lang} />
-    </SectionContainer>
-  </div>
+      <SectionContainer id="sobre-mi">
+        <TitleSection>
+          <ProfileCheck class="size-8" />
+          {text.layout.sections.about}
+        </TitleSection>
+        <AboutMe lang={lang} />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>
