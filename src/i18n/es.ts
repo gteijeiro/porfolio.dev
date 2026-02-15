@@ -121,7 +121,6 @@ export const es = {
       STREAMLIT: "Streamlit",
       WEB_APP: "Web App",
       SCRAPING: "Scraping",
-      BOT: "Bot",
     },
     items: {
       filesTools: {
