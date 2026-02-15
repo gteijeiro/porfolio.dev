@@ -120,6 +120,8 @@ export const es = {
       OPENAI: "OpenAI",
       STREAMLIT: "Streamlit",
       WEB_APP: "Web App",
+      SCRAPING: "Scraping",
+      BOT: "Bot",
     },
     items: {
       filesTools: {
@@ -146,6 +148,11 @@ export const es = {
         title: "Generador de Codigo con IA",
         description:
           "Aplicacion web desarrollada en Python con Streamlit que funciona como generador de codigo asistido por IA. Permite conectar con modelos de Azure OpenAI para aplicar prompts sobre plantillas personalizadas, sustituir variables en archivos estaticos y descargar el codigo generado organizado por archivos. Incluye manejo de diferentes modelos de IA y herramientas auxiliares para limpiar y estructurar el texto de entrada.",
+      },
+      quini6Bot: {
+        title: "Quini6 Bot",
+        description:
+          "Bot automatizado desarrollado en Python que busca resultados del Quini 6 desde la web, hace scraping periodico y notifica al usuario con los ultimos resultados. Incluye manejo de solicitudes HTTP, parsing de HTML para extraer numeros ganadores y logica para comparar y mostrar cambios desde la ultima ejecucion.",
       },
       workDummy: {
         title: "Proyecto laboral (dummy)",

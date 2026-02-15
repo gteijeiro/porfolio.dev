@@ -20,6 +20,7 @@ import Azure from "./icons/Azure.astro"
 import OpenAI from "./icons/OpenAI.astro"
 import Streamlit from "./icons/Streamlit.astro"
 import WebApp from "./icons/WebApp.astro"
+import Scraping from "./icons/Scraping.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
@@ -67,6 +68,7 @@ const TAGS = {
   OPENAI: { class: "bg-neutral-900 text-white", icon: OpenAI },
   STREAMLIT: { class: "bg-rose-600 text-white", icon: Streamlit },
   WEB_APP: { class: "bg-teal-700 text-white", icon: WebApp },
+  SCRAPING: { class: "bg-cyan-700 text-white", icon: Scraping },
 }
 
 const PROJECTS_OWN: ProjectMeta[] = [
@@ -113,6 +115,13 @@ const PROJECTS_OWN: ProjectMeta[] = [
     github: "https://github.com/gteijeiro/codegen",
     image: "/projects/codegenia.png",
     tags: ["PYTHON", "STREAMLIT", "WEB_APP", "IA", "AZURE", "OPENAI", "OPEN_SOURCE"] as TagKey[],
+  },
+  {
+    id: "quini6Bot",
+    link: "",
+    github: "https://github.com/gteijeiro/quini6-bot",
+    image: "/projects/consola.png",
+    tags: ["PYTHON", "TELEGRAM", "AZURE", "SCRAPING", "OPEN_SOURCE"] as TagKey[],
   },
 ]
 
