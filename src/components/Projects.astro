@@ -21,6 +21,25 @@ import OpenAI from "./icons/OpenAI.astro"
 import Streamlit from "./icons/Streamlit.astro"
 import WebApp from "./icons/WebApp.astro"
 import Scraping from "./icons/Scraping.astro"
+import DotNetCore from "./icons/DotNetCore.astro"
+import TypeScript from "./icons/TypeScript.astro"
+import AngularJS from "./icons/AngularJS.astro"
+import Angular from "./icons/Angular.astro"
+import Ionic from "./icons/Ionic.astro"
+import SqlServer from "./icons/SqlServer.astro"
+import MongoDb from "./icons/MongoDb.astro"
+import Neo4j from "./icons/Neo4j.astro"
+import RabbitMq from "./icons/RabbitMq.astro"
+import WindowsServices from "./icons/WindowsServices.astro"
+import GoogleMaps from "./icons/GoogleMaps.astro"
+import Firebase from "./icons/Firebase.astro"
+import Jenkins from "./icons/Jenkins.astro"
+import OctopusDeploy from "./icons/OctopusDeploy.astro"
+import SonarQube from "./icons/SonarQube.astro"
+import EntityFramework from "./icons/EntityFramework.astro"
+import Scrum from "./icons/Scrum.astro"
+import Kanban from "./icons/Kanban.astro"
+import Bitbucket from "./icons/Bitbucket.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
@@ -69,6 +88,25 @@ const TAGS = {
   STREAMLIT: { class: "bg-rose-600 text-white", icon: Streamlit },
   WEB_APP: { class: "bg-teal-700 text-white", icon: WebApp },
   SCRAPING: { class: "bg-cyan-700 text-white", icon: Scraping },
+  DOTNET: { class: "bg-indigo-700 text-white", icon: DotNetCore },
+  TYPESCRIPT: { class: "bg-blue-700 text-white", icon: TypeScript },
+  ANGULARJS: { class: "bg-rose-700 text-white", icon: AngularJS },
+  ANGULAR: { class: "bg-red-700 text-white", icon: Angular },
+  IONIC: { class: "bg-sky-700 text-white", icon: Ionic },
+  SQLSERVER: { class: "bg-zinc-700 text-white", icon: SqlServer },
+  MONGODB: { class: "bg-emerald-700 text-white", icon: MongoDb },
+  NEO4J: { class: "bg-orange-700 text-white", icon: Neo4j },
+  RABBITMQ: { class: "bg-amber-700 text-white", icon: RabbitMq },
+  WINDOWS_SERVICES: { class: "bg-blue-800 text-white", icon: WindowsServices },
+  GOOGLE_MAPS: { class: "bg-green-700 text-white", icon: GoogleMaps },
+  FIREBASE: { class: "bg-yellow-500 text-black", icon: Firebase },
+  JENKINS: { class: "bg-red-800 text-white", icon: Jenkins },
+  OCTOPUS: { class: "bg-purple-700 text-white", icon: OctopusDeploy },
+  SONARQUBE: { class: "bg-teal-700 text-white", icon: SonarQube },
+  ENTITY_FRAMEWORK: { class: "bg-indigo-800 text-white", icon: EntityFramework },
+  SCRUM: { class: "bg-slate-700 text-white", icon: Scrum },
+  KANBAN: { class: "bg-cyan-800 text-white", icon: Kanban },
+  BITBUCKET: { class: "bg-blue-700 text-white", icon: Bitbucket },
 }
 
 const PROJECTS_OWN: ProjectMeta[] = [
@@ -127,11 +165,31 @@ const PROJECTS_OWN: ProjectMeta[] = [
 
 const PROJECTS_WORK: ProjectMeta[] = [
   {
-    id: "workDummy",
+    id: "sendbox",
     link: "",
     github: "",
     image: "/projects/consola.png",
-    tags: ["AZURE"] as TagKey[],
+    tags: [
+      "DOTNET",
+      "TYPESCRIPT",
+      "ANGULARJS",
+      "ANGULAR",
+      "IONIC",
+      "SQLSERVER",
+      "MONGODB",
+      "NEO4J",
+      "RABBITMQ",
+      "WINDOWS_SERVICES",
+      "GOOGLE_MAPS",
+      "FIREBASE",
+      "JENKINS",
+      "OCTOPUS",
+      "SONARQUBE",
+      "ENTITY_FRAMEWORK",
+      "SCRUM",
+      "KANBAN",
+      "BITBUCKET",
+    ] as TagKey[],
   },
 ]
 

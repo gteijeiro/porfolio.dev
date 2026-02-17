@@ -121,6 +121,25 @@ export const es = {
       STREAMLIT: "Streamlit",
       WEB_APP: "Web App",
       SCRAPING: "Scraping",
+      DOTNET: ".NET",
+      TYPESCRIPT: "TypeScript",
+      ANGULARJS: "AngularJS",
+      ANGULAR: "Angular",
+      IONIC: "Ionic",
+      SQLSERVER: "SQL Server",
+      MONGODB: "MongoDB",
+      NEO4J: "Neo4j",
+      RABBITMQ: "RabbitMQ",
+      WINDOWS_SERVICES: "Windows Services",
+      GOOGLE_MAPS: "Google Maps API",
+      FIREBASE: "Firebase",
+      JENKINS: "Jenkins",
+      OCTOPUS: "Octopus Deploy",
+      SONARQUBE: "SonarQube",
+      ENTITY_FRAMEWORK: "Entity Framework",
+      SCRUM: "Scrum",
+      KANBAN: "Kanban",
+      BITBUCKET: "Bitbucket",
     },
     items: {
       filesTools: {
@@ -153,10 +172,10 @@ export const es = {
         description:
           "Bot automatizado desarrollado en Python que busca resultados del Quini 6 desde la web, hace scraping periodico y notifica al usuario con los ultimos resultados. Incluye manejo de solicitudes HTTP, parsing de HTML para extraer numeros ganadores y logica para comparar y mostrar cambios desde la ultima ejecucion.",
       },
-      workDummy: {
-        title: "Proyecto laboral (dummy)",
+      sendbox: {
+        title: "Sendbox",
         description:
-          "Proyecto de ejemplo para mostrar la seccion laboral. Luego se reemplaza por casos reales con detalles tecnicos, impacto y responsabilidades.",
+          "Plataforma integral para la generacion, gestion y seguimiento de envios de paqueteria. Participe como Lider Tecnico en el desarrollo de un sistema completo que cubre todo el ciclo de vida del envio: creacion, recoleccion, distribucion y entrega final, incluyendo procesos internos de la empresa. La solucion integra backend en .NET, multiples frontends (AngularJS, Angular e Ionic), mensajeria asincronica con RabbitMQ, servicios Windows y trazabilidad avanzada con bases de datos relacionales y no relacionales. Se implementaron practicas de CI/CD y control de calidad con Jenkins, Octopus y SonarQube, trabajando bajo metodologias agiles con Code Review, Jira, Scrum y Kanban.",
       },
     },
   },

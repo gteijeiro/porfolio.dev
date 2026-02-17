@@ -121,6 +121,25 @@ export const en = {
       STREAMLIT: "Streamlit",
       WEB_APP: "Web App",
       SCRAPING: "Scraping",
+      DOTNET: ".NET",
+      TYPESCRIPT: "TypeScript",
+      ANGULARJS: "AngularJS",
+      ANGULAR: "Angular",
+      IONIC: "Ionic",
+      SQLSERVER: "SQL Server",
+      MONGODB: "MongoDB",
+      NEO4J: "Neo4j",
+      RABBITMQ: "RabbitMQ",
+      WINDOWS_SERVICES: "Windows Services",
+      GOOGLE_MAPS: "Google Maps API",
+      FIREBASE: "Firebase",
+      JENKINS: "Jenkins",
+      OCTOPUS: "Octopus Deploy",
+      SONARQUBE: "SonarQube",
+      ENTITY_FRAMEWORK: "Entity Framework",
+      SCRUM: "Scrum",
+      KANBAN: "Kanban",
+      BITBUCKET: "Bitbucket",
     },
     items: {
       filesTools: {
@@ -153,10 +172,10 @@ export const en = {
         description:
           "Automated Python bot that fetches Quini 6 results from the web, runs periodic scraping, and notifies the user with the latest results. It includes HTTP requests handling, HTML parsing to extract winning numbers, and logic to compare and show changes since the last run.",
       },
-      workDummy: {
-        title: "Work project (dummy)",
+      sendbox: {
+        title: "Sendbox",
         description:
-          "Example project to show the work section. It will be replaced with real cases including technical details, impact, and responsibilities.",
+          "End-to-end platform for generating, managing, and tracking parcel shipments. I participated as Technical Lead in the development of a full system covering the entire shipment lifecycle: creation, pickup, distribution, and final delivery, including internal company processes. The solution integrates a .NET backend, multiple frontends (AngularJS, Angular, and Ionic), asynchronous messaging with RabbitMQ, Windows services, and advanced traceability with relational and non-relational databases. CI/CD and quality practices were implemented with Jenkins, Octopus, and SonarQube, working under agile methodologies with Code Review, Jira, Scrum, and Kanban.",
       },
     },
   },
