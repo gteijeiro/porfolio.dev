@@ -50,10 +50,6 @@ import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
 import type { Lang, ProjectId, TagKey } from "@/i18n"
 
-interface Props {
-  lang?: Lang
-}
-
 const { lang = "es" } = Astro.props
 const text = getI18n(lang)
 const projectItems = text.projects.items as Record<
@@ -206,7 +202,7 @@ const PROJECTS_WORK: ProjectMeta[] = [
     id: "walletWhiteLabel",
     link: "",
     github: "",
-    image: "/projects/consola.png",
+    image: "/projects/billeteravirtual.png",
     tags: [
       "DOTNET",
       "DOTNET_CORE",
@@ -244,11 +240,13 @@ const groups = [
     title: text.projects.groups.own.title,
     description: text.projects.groups.own.description,
     items: PROJECTS_OWN,
+    fullDescription: true,
   },
   {
     title: text.projects.groups.work.title,
     description: text.projects.groups.work.description,
     items: PROJECTS_WORK,
+    fullDescription: false,
   },
 ]
 ---
@@ -274,6 +272,9 @@ const groups = [
             const projectId = createId(id)
             const projectTitle = projectItems[id].title
             const projectDescription = projectItems[id].description
+            const projectExcerpt = group.fullDescription
+              ? projectDescription
+              : getExcerpt(projectDescription)
             const imageStyle = imageClass ?? "object-center"
 
             return (
@@ -281,7 +282,7 @@ const groups = [
                 <button
                   type="button"
                   data-modal-target={`project-${projectId}`}
-                  class="h-full w-full text-left rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/50 backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  class="h-full w-full min-h-[520px] md:min-h-[560px] text-left rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/50 backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
                 >
                   <div class="overflow-hidden rounded-t-2xl reveal-child" style="--reveal-delay: 0ms;">
                     <div class="aspect-video w-full bg-white/40 dark:bg-gray-900/40">
@@ -294,16 +295,20 @@ const groups = [
                       />
                     </div>
                   </div>
-                  <div class="p-4 flex flex-col gap-3">
-                    <div class="reveal-child" style="--reveal-delay: 80ms;">
-                      <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                  <div class="p-4 flex flex-1 flex-col">
+                    <div class="reveal-child project-summary" style="--reveal-delay: 80ms;">
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 project-title">
                         {projectTitle}
                       </h4>
-                      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                        {getExcerpt(projectDescription)}
+                      <p
+                        class={`mt-2 text-sm text-gray-600 dark:text-gray-400 ${
+                          group.fullDescription ? "project-desc-full" : "project-desc"
+                        }`}
+                      >
+                        {projectExcerpt}
                       </p>
                     </div>
-                    <ul class="flex flex-wrap gap-2 reveal-child" style="--reveal-delay: 160ms;">
+                    <ul class="flex flex-wrap gap-2 reveal-child project-tags" style="--reveal-delay: 160ms;">
                       {tags.map((tagKey: TagKey) => {
                         const tag = TAGS[tagKey]
                         const TagIcon = tag.icon
@@ -321,7 +326,7 @@ const groups = [
                       })}
                     </ul>
                     <span
-                      class="text-xs font-medium text-gray-700 dark:text-gray-300 reveal-child"
+                      class="mt-auto inline-flex items-center self-start rounded-full border border-gray-200 bg-white/80 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-gray-800 dark:bg-gray-900/60 dark:text-gray-100 reveal-child"
                       style="--reveal-delay: 220ms;"
                     >
                       {text.projects.details}
@@ -444,3 +449,37 @@ const groups = [
   document.addEventListener("astro:page-load", attachProjectModals)
   attachProjectModals()
 </script>
+
+<style>
+  .project-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 28px;
+  }
+
+  .project-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-desc-full {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+  }
+
+
+  .project-summary {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-tags {
+    overflow: visible;
+  }
+</style>
