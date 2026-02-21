@@ -40,6 +40,11 @@ import EntityFramework from "./icons/EntityFramework.astro"
 import Scrum from "./icons/Scrum.astro"
 import Kanban from "./icons/Kanban.astro"
 import Bitbucket from "./icons/Bitbucket.astro"
+import AspNetMvc from "./icons/AspNetMvc.astro"
+import WinForms from "./icons/WinForms.astro"
+import Webhooks from "./icons/Webhooks.astro"
+import Jira from "./icons/Jira.astro"
+import CiCd from "./icons/CiCd.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
@@ -89,15 +94,19 @@ const TAGS = {
   WEB_APP: { class: "bg-teal-700 text-white", icon: WebApp },
   SCRAPING: { class: "bg-cyan-700 text-white", icon: Scraping },
   DOTNET: { class: "bg-indigo-700 text-white", icon: DotNetCore },
+  DOTNET_CORE: { class: "bg-indigo-700 text-white", icon: DotNetCore },
   TYPESCRIPT: { class: "bg-blue-700 text-white", icon: TypeScript },
   ANGULARJS: { class: "bg-rose-700 text-white", icon: AngularJS },
   ANGULAR: { class: "bg-red-700 text-white", icon: Angular },
   IONIC: { class: "bg-sky-700 text-white", icon: Ionic },
+  ASPNET_MVC: { class: "bg-purple-800 text-white", icon: AspNetMvc },
+  WINFORMS: { class: "bg-slate-800 text-white", icon: WinForms },
   SQLSERVER: { class: "bg-zinc-700 text-white", icon: SqlServer },
   MONGODB: { class: "bg-emerald-700 text-white", icon: MongoDb },
   NEO4J: { class: "bg-orange-700 text-white", icon: Neo4j },
   RABBITMQ: { class: "bg-amber-700 text-white", icon: RabbitMq },
   WINDOWS_SERVICES: { class: "bg-blue-800 text-white", icon: WindowsServices },
+  WEBHOOKS: { class: "bg-cyan-700 text-white", icon: Webhooks },
   GOOGLE_MAPS: { class: "bg-green-700 text-white", icon: GoogleMaps },
   FIREBASE: { class: "bg-yellow-500 text-black", icon: Firebase },
   JENKINS: { class: "bg-red-800 text-white", icon: Jenkins },
@@ -105,6 +114,8 @@ const TAGS = {
   SONARQUBE: { class: "bg-teal-700 text-white", icon: SonarQube },
   ENTITY_FRAMEWORK: { class: "bg-indigo-800 text-white", icon: EntityFramework },
   SCRUM: { class: "bg-slate-700 text-white", icon: Scrum },
+  JIRA: { class: "bg-blue-800 text-white", icon: Jira },
+  CICD: { class: "bg-neutral-800 text-white", icon: CiCd },
   KANBAN: { class: "bg-cyan-800 text-white", icon: Kanban },
   BITBUCKET: { class: "bg-blue-700 text-white", icon: Bitbucket },
 }
@@ -168,7 +179,7 @@ const PROJECTS_WORK: ProjectMeta[] = [
     id: "sendbox",
     link: "",
     github: "",
-    image: "/projects/consola.png",
+    image: "/projects/sendox.png",
     tags: [
       "DOTNET",
       "TYPESCRIPT",
@@ -189,6 +200,30 @@ const PROJECTS_WORK: ProjectMeta[] = [
       "SCRUM",
       "KANBAN",
       "BITBUCKET",
+    ] as TagKey[],
+  },
+  {
+    id: "walletWhiteLabel",
+    link: "",
+    github: "",
+    image: "/projects/consola.png",
+    tags: [
+      "DOTNET",
+      "DOTNET_CORE",
+      "ASPNET_MVC",
+      "WINFORMS",
+      "ANGULAR",
+      "SQLSERVER",
+      "MONGODB",
+      "RABBITMQ",
+      "WINDOWS_SERVICES",
+      "WEBHOOKS",
+      "JENKINS",
+      "OCTOPUS",
+      "SONARQUBE",
+      "SCRUM",
+      "JIRA",
+      "CICD",
     ] as TagKey[],
   },
 ]

@@ -121,8 +121,13 @@ export const es = {
       STREAMLIT: "Streamlit",
       WEB_APP: "Web App",
       SCRAPING: "Scraping",
+
+
       DOTNET: ".NET",
+      DOTNET_CORE: ".NET Core",
       TYPESCRIPT: "TypeScript",
+      ASPNET_MVC: "ASP.NET MVC",
+      WINFORMS: "WinForms",
       ANGULARJS: "AngularJS",
       ANGULAR: "Angular",
       IONIC: "Ionic",
@@ -131,6 +136,7 @@ export const es = {
       NEO4J: "Neo4j",
       RABBITMQ: "RabbitMQ",
       WINDOWS_SERVICES: "Windows Services",
+      WEBHOOKS: "Webhooks",
       GOOGLE_MAPS: "Google Maps API",
       FIREBASE: "Firebase",
       JENKINS: "Jenkins",
@@ -138,6 +144,8 @@ export const es = {
       SONARQUBE: "SonarQube",
       ENTITY_FRAMEWORK: "Entity Framework",
       SCRUM: "Scrum",
+      JIRA: "Jira",
+      CICD: "CI/CD",
       KANBAN: "Kanban",
       BITBUCKET: "Bitbucket",
     },
@@ -176,6 +184,11 @@ export const es = {
         title: "Sendbox",
         description:
           "Plataforma integral para la generacion, gestion y seguimiento de envios de paqueteria. Participe como Lider Tecnico en el desarrollo de un sistema completo que cubre todo el ciclo de vida del envio: creacion, recoleccion, distribucion y entrega final, incluyendo procesos internos de la empresa. La solucion integra backend en .NET, multiples frontends (AngularJS, Angular e Ionic), mensajeria asincronica con RabbitMQ, servicios Windows y trazabilidad avanzada con bases de datos relacionales y no relacionales. Se implementaron practicas de CI/CD y control de calidad con Jenkins, Octopus y SonarQube, trabajando bajo metodologias agiles con Code Review, Jira, Scrum y Kanban.",
+      },
+      walletWhiteLabel: {
+        title: "Billetera Virtual White Label",
+        description:
+          "Desarrollo de una billetera virtual de marca blanca integrada a las APIs de Bibank para la gestion de cuentas virtuales con CVU. Participe como Desarrollador en la implementacion del backend en .NET y .NET Core, aplicaciones de escritorio con WinForms y frontend en Angular. La solucion incluyo integracion mediante webhooks, mensajeria asincronica con RabbitMQ y servicios Windows para procesamiento de operaciones. Se trabajo con bases de datos SQL Server y MongoDB, aplicando buenas practicas de calidad de codigo con SonarQube y pipelines CI/CD con Jenkins y Octopus, bajo metodologia Scrum con Code Review y gestion en Jira.",
       },
     },
   },
