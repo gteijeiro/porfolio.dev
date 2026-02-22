@@ -129,6 +129,7 @@ export const es = {
       ASPNET_MVC: "ASP.NET MVC",
       ASPNET_WEBAPI: "ASP.NET Web API",
       ASPNET4: "ASP.NET 4",
+      ASPNET35: "ASP.NET 3.5",
       NHIBERNATE: "NHibernate",
       ORM: "ORM",
       RESTFUL_API: "RESTful API",
@@ -141,6 +142,10 @@ export const es = {
       REDMINE: "Redmine",
       SVN: "SVN",
       GIT: "Git",
+      WEBSERVICES: "WebServices",
+      BPM: "BPM",
+      PECTRA: "PECTRA",
+      TFS: "TFS",
       WINFORMS: "WinForms",
       ANGULARJS: "AngularJS",
       ANGULAR: "Angular",
@@ -213,6 +218,11 @@ export const es = {
         title: "VU - Ventanilla Unica",
         description:
           "Proyecto desarrollado junto a GEMINUS IT entre febrero y julio de 2014 para la Municipalidad de Cordoba. Se trata de una aplicacion web que permite a los ciudadanos iniciar el tramite de habilitacion de nuevos negocios de manera online, centralizando el proceso administrativo en una unica plataforma. La solucion fue desarrollada en ASP.NET 4 con C#, utilizando NHibernate como ORM para la gestion y persistencia de datos. La gestion del proyecto se realizo con Redmine y el control de versiones mediante SVN.",
+      },
+      bcra: {
+        title: "BCRA",
+        description:
+          "Desarrollo de sitio web institucional para el BCRA junto a Grupo Prominente, implementado en ASP.NET 3.5 con C# tanto en Front-End como en Back-End. La solucion estaba compuesta por paginas ASP.NET independientes gestionadas mediante PECTRA (software BPM interno), integrando ademas el framework propio de Prominente y WebServices para interoperabilidad entre sistemas. Se realizaron validaciones del lado del cliente con JavaScript y se trabajo con base de datos SQL Server 2008 R2. El proyecto se desarrollo bajo metodologia CMMI, utilizando TFS como gestor de proyecto y repositorio.",
       },
     },
   },

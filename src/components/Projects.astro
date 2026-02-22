@@ -43,6 +43,7 @@ import Bitbucket from "./icons/Bitbucket.astro"
 import AspNetMvc from "./icons/AspNetMvc.astro"
 import AspNetWebApi from "./icons/AspNetWebApi.astro"
 import AspNet4 from "./icons/AspNet4.astro"
+import AspNet35 from "./icons/AspNet35.astro"
 import WinForms from "./icons/WinForms.astro"
 import Webhooks from "./icons/Webhooks.astro"
 import Jira from "./icons/Jira.astro"
@@ -59,6 +60,10 @@ import Svn from "./icons/Svn.astro"
 import Git from "./icons/Git.astro"
 import Nhibernate from "./icons/Nhibernate.astro"
 import Orm from "./icons/Orm.astro"
+import WebServices from "./icons/WebServices.astro"
+import Bpm from "./icons/Bpm.astro"
+import Pectra from "./icons/Pectra.astro"
+import Tfs from "./icons/Tfs.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
@@ -112,6 +117,7 @@ const TAGS = {
   ASPNET_MVC: { class: "bg-purple-800 text-white", icon: AspNetMvc },
   ASPNET_WEBAPI: { class: "bg-violet-800 text-white", icon: AspNetWebApi },
   ASPNET4: { class: "bg-indigo-800 text-white", icon: AspNet4 },
+  ASPNET35: { class: "bg-indigo-900 text-white", icon: AspNet35 },
   NHIBERNATE: { class: "bg-emerald-800 text-white", icon: Nhibernate },
   ORM: { class: "bg-slate-700 text-white", icon: Orm },
   RESTFUL_API: { class: "bg-slate-700 text-white", icon: RestApi },
@@ -124,6 +130,10 @@ const TAGS = {
   REDMINE: { class: "bg-red-700 text-white", icon: Redmine },
   SVN: { class: "bg-neutral-700 text-white", icon: Svn },
   GIT: { class: "bg-orange-700 text-white", icon: Git },
+  WEBSERVICES: { class: "bg-cyan-800 text-white", icon: WebServices },
+  BPM: { class: "bg-emerald-700 text-white", icon: Bpm },
+  PECTRA: { class: "bg-rose-700 text-white", icon: Pectra },
+  TFS: { class: "bg-blue-900 text-white", icon: Tfs },
   WINFORMS: { class: "bg-slate-800 text-white", icon: WinForms },
   SQLSERVER: { class: "bg-zinc-700 text-white", icon: SqlServer },
   MONGODB: { class: "bg-emerald-700 text-white", icon: MongoDb },
@@ -287,6 +297,24 @@ const PROJECTS_WORK: ProjectMeta[] = [
       "SQLSERVER",
       "REDMINE",
       "SVN",
+    ] as TagKey[],
+  },
+  {
+    id: "bcra",
+    link: "",
+    github: "",
+    image: "/projects/noimage.jpeg",
+    tags: [
+      "DOTNET",
+      "CSHARP",
+      "ASPNET35",
+      "SQLSERVER",
+      "JAVASCRIPT",
+      "WEBSERVICES",
+      "BPM",
+      "PECTRA",
+      "CMMI",
+      "TFS",
     ] as TagKey[],
   },
 ]

@@ -127,6 +127,7 @@ export const en = {
       ASPNET_MVC: "ASP.NET MVC",
       ASPNET_WEBAPI: "ASP.NET Web API",
       ASPNET4: "ASP.NET 4",
+      ASPNET35: "ASP.NET 3.5",
       NHIBERNATE: "NHibernate",
       ORM: "ORM",
       RESTFUL_API: "RESTful API",
@@ -139,6 +140,10 @@ export const en = {
       REDMINE: "Redmine",
       SVN: "SVN",
       GIT: "Git",
+      WEBSERVICES: "WebServices",
+      BPM: "BPM",
+      PECTRA: "PECTRA",
+      TFS: "TFS",
       WINFORMS: "WinForms",
       ANGULARJS: "AngularJS",
       ANGULAR: "Angular",
@@ -211,6 +216,11 @@ export const en = {
         title: "VU - Single Window",
         description:
           "Project developed with GEMINUS IT between February and July 2014 for the Municipality of Cordoba. It is a web application that allows citizens to start the business license process online, centralizing the administrative flow in a single platform. The solution was built in ASP.NET 4 with C#, using NHibernate as the ORM for data management and persistence. The project was managed with Redmine and version control with SVN.",
+      },
+      bcra: {
+        title: "BCRA",
+        description:
+          "Institutional website built for BCRA with Grupo Prominente, implemented in ASP.NET 3.5 with C# on both front end and back end. The solution consisted of independent ASP.NET pages managed through PECTRA (internal BPM software), integrating Prominente's own framework and WebServices for interoperability between systems. Client side validations were implemented with JavaScript and the database was SQL Server 2008 R2. The project followed CMMI methodology, using TFS as the project manager and repository.",
       },
     },
   },
