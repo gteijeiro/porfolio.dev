@@ -41,10 +41,21 @@ import Scrum from "./icons/Scrum.astro"
 import Kanban from "./icons/Kanban.astro"
 import Bitbucket from "./icons/Bitbucket.astro"
 import AspNetMvc from "./icons/AspNetMvc.astro"
+import AspNetWebApi from "./icons/AspNetWebApi.astro"
 import WinForms from "./icons/WinForms.astro"
 import Webhooks from "./icons/Webhooks.astro"
 import Jira from "./icons/Jira.astro"
 import CiCd from "./icons/CiCd.astro"
+import RestApi from "./icons/RestApi.astro"
+import Html from "./icons/Html.astro"
+import Css from "./icons/Css.astro"
+import JavaScript from "./icons/JavaScript.astro"
+import Architecture from "./icons/Architecture.astro"
+import Cmmi from "./icons/Cmmi.astro"
+import Agile from "./icons/Agile.astro"
+import Redmine from "./icons/Redmine.astro"
+import Svn from "./icons/Svn.astro"
+import Git from "./icons/Git.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
@@ -96,6 +107,17 @@ const TAGS = {
   ANGULAR: { class: "bg-red-700 text-white", icon: Angular },
   IONIC: { class: "bg-sky-700 text-white", icon: Ionic },
   ASPNET_MVC: { class: "bg-purple-800 text-white", icon: AspNetMvc },
+  ASPNET_WEBAPI: { class: "bg-violet-800 text-white", icon: AspNetWebApi },
+  RESTFUL_API: { class: "bg-slate-700 text-white", icon: RestApi },
+  HTML: { class: "bg-orange-600 text-white", icon: Html },
+  CSS: { class: "bg-blue-600 text-white", icon: Css },
+  JAVASCRIPT: { class: "bg-yellow-400 text-black", icon: JavaScript },
+  ARCHITECTURE: { class: "bg-emerald-800 text-white", icon: Architecture },
+  CMMI: { class: "bg-zinc-700 text-white", icon: Cmmi },
+  AGILE: { class: "bg-green-700 text-white", icon: Agile },
+  REDMINE: { class: "bg-red-700 text-white", icon: Redmine },
+  SVN: { class: "bg-neutral-700 text-white", icon: Svn },
+  GIT: { class: "bg-orange-700 text-white", icon: Git },
   WINFORMS: { class: "bg-slate-800 text-white", icon: WinForms },
   SQLSERVER: { class: "bg-zinc-700 text-white", icon: SqlServer },
   MONGODB: { class: "bg-emerald-700 text-white", icon: MongoDb },
@@ -220,6 +242,29 @@ const PROJECTS_WORK: ProjectMeta[] = [
       "SCRUM",
       "JIRA",
       "CICD",
+    ] as TagKey[],
+  },
+  {
+    id: "miCuentaIndividuos",
+    link: "",
+    github: "",
+    image: "/projects/noimage.jpeg",
+    tags: [
+      "DOTNET",
+      "CSHARP",
+      "ASPNET_MVC",
+      "ASPNET_WEBAPI",
+      "RESTFUL_API",
+      "HTML",
+      "CSS",
+      "JAVASCRIPT",
+      "ARCHITECTURE",
+      "CMMI",
+      "AGILE",
+      "REDMINE",
+      "JIRA",
+      "SVN",
+      "GIT",
     ] as TagKey[],
   },
 ]
