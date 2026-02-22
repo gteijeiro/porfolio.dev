@@ -42,6 +42,7 @@ import Kanban from "./icons/Kanban.astro"
 import Bitbucket from "./icons/Bitbucket.astro"
 import AspNetMvc from "./icons/AspNetMvc.astro"
 import AspNetWebApi from "./icons/AspNetWebApi.astro"
+import AspNet4 from "./icons/AspNet4.astro"
 import WinForms from "./icons/WinForms.astro"
 import Webhooks from "./icons/Webhooks.astro"
 import Jira from "./icons/Jira.astro"
@@ -56,6 +57,8 @@ import Agile from "./icons/Agile.astro"
 import Redmine from "./icons/Redmine.astro"
 import Svn from "./icons/Svn.astro"
 import Git from "./icons/Git.astro"
+import Nhibernate from "./icons/Nhibernate.astro"
+import Orm from "./icons/Orm.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import { getI18n } from "@/i18n"
@@ -108,6 +111,9 @@ const TAGS = {
   IONIC: { class: "bg-sky-700 text-white", icon: Ionic },
   ASPNET_MVC: { class: "bg-purple-800 text-white", icon: AspNetMvc },
   ASPNET_WEBAPI: { class: "bg-violet-800 text-white", icon: AspNetWebApi },
+  ASPNET4: { class: "bg-indigo-800 text-white", icon: AspNet4 },
+  NHIBERNATE: { class: "bg-emerald-800 text-white", icon: Nhibernate },
+  ORM: { class: "bg-slate-700 text-white", icon: Orm },
   RESTFUL_API: { class: "bg-slate-700 text-white", icon: RestApi },
   HTML: { class: "bg-orange-600 text-white", icon: Html },
   CSS: { class: "bg-blue-600 text-white", icon: Css },
@@ -265,6 +271,22 @@ const PROJECTS_WORK: ProjectMeta[] = [
       "JIRA",
       "SVN",
       "GIT",
+    ] as TagKey[],
+  },
+  {
+    id: "vuVentanillaUnica",
+    link: "",
+    github: "",
+    image: "/projects/ventanillaunica.png",
+    tags: [
+      "DOTNET",
+      "CSHARP",
+      "ASPNET4",
+      "NHIBERNATE",
+      "ORM",
+      "SQLSERVER",
+      "REDMINE",
+      "SVN",
     ] as TagKey[],
   },
 ]

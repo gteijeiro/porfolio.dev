@@ -126,6 +126,9 @@ export const en = {
       TYPESCRIPT: "TypeScript",
       ASPNET_MVC: "ASP.NET MVC",
       ASPNET_WEBAPI: "ASP.NET Web API",
+      ASPNET4: "ASP.NET 4",
+      NHIBERNATE: "NHibernate",
+      ORM: "ORM",
       RESTFUL_API: "RESTful API",
       HTML: "HTML",
       CSS: "CSS",
@@ -203,6 +206,11 @@ export const en = {
         title: "Mi Cuenta Individuals Full Responsive",
         description:
           "Project developed with Sofrecom Argentina SA between December 2014 and 2015, focused on migrating a previous self service personnel platform to a fully responsive web experience for all screen sizes. The solution consisted of two applications: an ASP.NET MVC web app for the presentation layer (HTML, CSS, and JavaScript) and an ASP.NET Web API application under a RESTful architecture that concentrated the business logic. I participated in architecture design and in the development of the ASP.NET Web API, working under CMMI and Agile methodologies, with Redmine/Jira management and SVN/Git version control.",
+      },
+      vuVentanillaUnica: {
+        title: "VU - Single Window",
+        description:
+          "Project developed with GEMINUS IT between February and July 2014 for the Municipality of Cordoba. It is a web application that allows citizens to start the business license process online, centralizing the administrative flow in a single platform. The solution was built in ASP.NET 4 with C#, using NHibernate as the ORM for data management and persistence. The project was managed with Redmine and version control with SVN.",
       },
     },
   },

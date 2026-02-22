@@ -128,6 +128,9 @@ export const es = {
       TYPESCRIPT: "TypeScript",
       ASPNET_MVC: "ASP.NET MVC",
       ASPNET_WEBAPI: "ASP.NET Web API",
+      ASPNET4: "ASP.NET 4",
+      NHIBERNATE: "NHibernate",
+      ORM: "ORM",
       RESTFUL_API: "RESTful API",
       HTML: "HTML",
       CSS: "CSS",
@@ -205,6 +208,11 @@ export const es = {
         title: "Mi Cuenta Individuos Full Responsive",
         description:
           "Proyecto desarrollado junto a Sofrecom Argentina SA entre diciembre de 2014 y 2015, orientado a la migracion de una version previa de autogestion de personal hacia una plataforma web full responsive adaptable a todo tipo de pantallas. La solucion se compuso de dos aplicaciones: una web en ASP.NET MVC encargada de la presentacion (HTML, CSS y JavaScript) y una aplicacion en ASP.NET Web API bajo arquitectura RESTful que concentraba la logica de negocio. Participe en el diseno de la arquitectura y en el desarrollo de la aplicacion ASP.NET Web API, trabajando bajo metodologias CMMI y Agile, con gestion en Redmine/Jira y control de versiones en SVN/Git.",
+      },
+      vuVentanillaUnica: {
+        title: "VU - Ventanilla Unica",
+        description:
+          "Proyecto desarrollado junto a GEMINUS IT entre febrero y julio de 2014 para la Municipalidad de Cordoba. Se trata de una aplicacion web que permite a los ciudadanos iniciar el tramite de habilitacion de nuevos negocios de manera online, centralizando el proceso administrativo en una unica plataforma. La solucion fue desarrollada en ASP.NET 4 con C#, utilizando NHibernate como ORM para la gestion y persistencia de datos. La gestion del proyecto se realizo con Redmine y el control de versiones mediante SVN.",
       },
     },
   },
