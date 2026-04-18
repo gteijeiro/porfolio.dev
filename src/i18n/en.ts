@@ -172,15 +172,15 @@ export const en = {
         description:
           "Console utilities in Python to organize and sanitize large collections of media files (images, videos, and more). The project groups AI assisted tools that classify files, clean names, detect duplicates, and reorganize messy collections automatically and efficiently from the command line.",
       },
-      arcaLpgScraper: {
-        title: "ARCA LPG Scraper",
+      arcaLpg: {
+        title: "ARCA LPG",
         description:
-          "Command line tool in .NET 9 that automates downloading PDF vouchers from AFIP's LPG portal. It uses Playwright to reproduce the manual navigation and authentication steps, detects available records, and downloads the documents locally with sanitized filenames to avoid collisions.",
+          "Command line tool suite for working with ARCA LPG settlements. The project is split into two complementary repositories: a .NET 9 scraper built with Playwright that automates navigation, authentication, and local PDF download; and a Python OCR processor that analyzes those documents to extract structured information into formats such as CSV or JSON, normalizing key fields like buyer, seller, totals, and agricultural details.",
       },
-      arcaLpgOcr: {
-        title: "ARCA LPG OCR",
+      solarCost: {
+        title: "SolarCost",
         description:
-          "Python command line tool designed to process and extract structured information from LPG PDF settlements. It combines OCR with text block and table detection to produce outputs like CSV or JSON, normalizing key fields such as buyer, seller, totals, and agricultural details for each downloaded settlement.",
+          "Python suite for monitoring Solar Assistant data and calculating the real cost of electricity. The project is split into two complementary repositories published on PyPI: `solarcost-bridge`, which authenticates against Solar Assistant, consumes the Totals websocket, persists the state, and exposes it over HTTP; and `solarcost-web`, a web application that manages billing periods, tariffs, fixed charges, and taxes, compares inverter readings against utility readings, and estimates the monthly bill with charts and configurable rules.",
       },
       telegramBot: {
         title: "Telegram Bot",

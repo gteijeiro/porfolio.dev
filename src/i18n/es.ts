@@ -174,15 +174,15 @@ export const es = {
         description:
           "Coleccion de utilidades de consola desarrolladas en Python para organizar y sanear colecciones grandes de archivos multimedia (imagenes, videos y otros). El proyecto agrupa herramientas creadas con asistencia de IA que permiten clasificar archivos, limpiar nombres, detectar duplicados y reorganizar colecciones desordenadas de forma automatica y eficiente desde la linea de comandos.",
       },
-      arcaLpgScraper: {
-        title: "ARCA LPG Scraper",
+      arcaLpg: {
+        title: "ARCA LPG",
         description:
-          "Herramienta de linea de comandos escrita en .NET 9 que automatiza la descarga de comprobantes en PDF desde el servicio de Liquidacion Primaria de Granos (LPG) del portal de AFIP. Utiliza Playwright para reproducir de forma programatica los pasos manuales de navegacion y autenticacion, detecta los registros disponibles y obtiene los documentos correspondientes, guardandolos localmente con nombres sanitizados para evitar colisiones.",
+          "Suite de herramientas de linea de comandos para trabajar con Liquidaciones Primarias de Granos (LPG) de ARCA. El proyecto esta compuesto por dos repositorios complementarios: un scraper en .NET 9 con Playwright que automatiza la navegacion, autenticacion y descarga local de comprobantes en PDF; y un procesador OCR en Python que analiza esos documentos para extraer informacion estructurada en formatos como CSV o JSON, normalizando campos clave como comprador, vendedor, totales y detalles agricolas.",
       },
-      arcaLpgOcr: {
-        title: "ARCA LPG OCR",
+      solarCost: {
+        title: "SolarCost",
         description:
-          "Herramienta de linea de comandos en Python disenada para procesar y extraer informacion estructurada de los PDFs obtenidos de Liquidaciones Primarias de Granos (LPG). El proyecto combina OCR con deteccion de bloques de texto y tablas para generar resultados en formatos como CSV o JSON, normalizando campos clave como comprador, vendedor, totales y detalles agricolas de cada liquidacion descargada automaticamente.",
+          "Suite en Python para monitorear datos de Solar Assistant y calcular el costo real de la energia. El proyecto se divide en dos repositorios complementarios publicados en PyPI: `solarcost-bridge`, que se autentica contra Solar Assistant, consume el websocket de Totales, persiste el estado y lo expone por HTTP; y `solarcost-web`, una aplicacion web que administra periodos de facturacion, tarifas, cargos e impuestos, compara mediciones del inversor contra la compania y estima la factura mensual con graficos y reglas configurables.",
       },
       telegramBot: {
         title: "Telegram Bot",

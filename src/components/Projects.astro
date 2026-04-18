@@ -81,6 +81,7 @@ type ProjectMeta = {
   id: ProjectId
   link: string
   github: string
+  repositories?: { label: string; href: string }[]
   image: string
   tags: TagKey[]
   imageClass?: string
@@ -163,26 +164,37 @@ const PROJECTS_OWN: ProjectMeta[] = [
     tags: ["PYTHON", "CLI", "IA", "SCRIPT", "CONSOLA", "OPEN_SOURCE"] as TagKey[],
   },
   {
-    id: "arcaLpgScraper",
+    id: "arcaLpg",
     link: "",
-    github: "https://github.com/gteijeiro/arca-lpgscraper",
+    github: "",
+    repositories: [
+      { label: "Scraper", href: "https://github.com/gteijeiro/arca-lpgscraper" },
+      { label: "OCR", href: "https://github.com/gteijeiro/arca-lpg-ocr" },
+    ],
     image: "/projects/consola.png",
     tags: [
       "CSHARP",
       "DOTNET9",
+      "PYTHON",
       "PLAYWRIGHT",
       "AFIP",
       "CLI",
       "CONSOLA",
+      "OCR",
+      "TESSERACT",
       "OPEN_SOURCE",
     ] as TagKey[],
   },
   {
-    id: "arcaLpgOcr",
+    id: "solarCost",
     link: "",
-    github: "https://github.com/gteijeiro/arca-lpg-ocr",
-    image: "/projects/consola.png",
-    tags: ["PYTHON", "CLI", "CONSOLA", "OCR", "TESSERACT", "OPEN_SOURCE"] as TagKey[],
+    github: "",
+    repositories: [
+      { label: "Bridge", href: "https://github.com/gteijeiro/solarcost-bridge" },
+      { label: "Web", href: "https://github.com/gteijeiro/solarcost-web" },
+    ],
+    image: "/projects/solarcost.png",
+    tags: ["PYTHON", "CLI", "WEB_APP", "CONSOLA", "OPEN_SOURCE"] as TagKey[],
   },
   {
     id: "telegramBot",
@@ -363,7 +375,7 @@ const groups = [
       ) : (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
           {group.items.map((item: ProjectMeta) => {
-            const { id, image, tags, link, github, imageClass } = item
+            const { id, image, tags, link, github, repositories, imageClass } = item
             const projectId = createId(id)
             const projectTitle = projectItems[id].title
             const projectDescription = projectItems[id].description
@@ -371,6 +383,7 @@ const groups = [
               ? projectDescription
               : getExcerpt(projectDescription)
             const imageStyle = imageClass ?? "object-center"
+            const repositoryLinks = repositories ?? (github ? [{ label: "Code", href: github }] : [])
 
             return (
               <article class="group h-full reveal reveal-children">
@@ -472,12 +485,12 @@ const groups = [
 
                     <footer class="flex flex-wrap items-center justify-between gap-3">
                       <div class="flex flex-wrap items-center gap-3">
-                        {github && (
-                          <LinkButton href={github}>
+                        {repositoryLinks.map((repository) => (
+                          <LinkButton href={repository.href}>
                             <GitHub class="size-6" />
-                            Code
+                            {repository.label}
                           </LinkButton>
-                        )}
+                        ))}
                         {link && (
                           <LinkButton href={link}>
                             <Link class="size-4" />
